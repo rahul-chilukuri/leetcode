@@ -1,8 +1,8 @@
 package com.lc.problems.medium;
 
 import java.util.Arrays;
-import static com.sr.utils.InputUtil.sysexit;
-import static com.sr.utils.InputUtil.sysout;
+import static com.base.utils.InputUtil.sysexit;
+import static com.base.utils.InputUtil.sysout;
 
 public class LongestSubstring {
     public static void main(String[] args) {

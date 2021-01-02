@@ -1,7 +1,7 @@
 package com.lc.problems.medium;
 
-import com.sr.ds.list.DefaultList;
-import com.sr.ds.nodes.Node;
+import com.base.ds.list.DefaultList;
+import com.base.ds.nodes.Node;
 
 public class AddTwoNumbers extends DefaultList {
 
@@ -97,9 +97,9 @@ public class AddTwoNumbers extends DefaultList {
     static Node addSameSizeNodes(Node l1, Node l2) {
         Node node = null;
 
-        //checking for null on either nodes is redundant
-        //check on one should be enough since they are
-        //of same size, but retaining those checks to be clear
+        // checking for null on either nodes is redundant
+        // check on one should be enough since they are
+        // of same size, but retaining those checks to be clear
         if (l1.next == null && l2.next == null) {
             node = new Node(l1.data + l2.data);
         } else {

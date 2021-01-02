@@ -1,8 +1,8 @@
 package com.lc.explore.ds.list;
 
-import com.sr.ds.nodes.Node;
-import com.sr.ds.list.List;
-import com.sr.ds.list.LinkedList;
+import com.base.ds.nodes.Node;
+import com.base.ds.list.List;
+import com.base.ds.list.LinkedList;
 
 public class CycleDetection {
 

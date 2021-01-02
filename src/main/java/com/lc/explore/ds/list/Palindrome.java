@@ -1,7 +1,7 @@
 package com.lc.explore.ds.list;
 
-import com.sr.ds.nodes.Node;
-import com.sr.ds.list.List;
+import com.base.ds.nodes.Node;
+import com.base.ds.list.List;
 
 public class Palindrome {
     public static void main(String[] args) {
