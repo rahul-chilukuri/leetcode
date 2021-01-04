@@ -13,16 +13,16 @@ public class NodeRemoval {
     static void testRemoveNthNode() {
         System.out.println("################ REMOVE Nth from HEAD ################");
         Node dHead = List.getLinkedList(new int[] { 1, 2, 6, 3, 4, 5, 6 });
-        List.print(dHead, "->");
-        List.print(removeNthNodeFromEnd(dHead, 5), "->");
+        List.print(dHead);
+        List.print(removeNthNodeFromEnd(dHead, 5));
     }
 
     static void testRemoveAll() {
         System.out.println("################ REMOVE ALL ################");
         Node dHead = List.getLinkedList(new int[] { 1, 2, 6, 3, 4, 5, 6 });
-        List.print(dHead, "->");
+        List.print(dHead);
         // Node dHead = List.getLinkedList(new int[] { 6, 6, 6, 6, 6, 6, 6 });
-        List.print(removeAll(dHead, 6), "->");
+        List.print(removeAll(dHead, 6));
     }
 
     /**

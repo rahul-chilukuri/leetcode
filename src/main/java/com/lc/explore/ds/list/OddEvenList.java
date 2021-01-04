@@ -8,7 +8,7 @@ public class OddEvenList {
         // Node head = list.getLinkedList(new int[] { 1, 2, 3, 4, 5 });
         // Node head = list.getLinkedList(new int[] { 2, 1, 3, 5, 6, 4, 7 });
         Node head = List.getLinkedList(new int[] { 1, 2, 3, 4, 5, 6, 7 });
-        List.print(oddEvenList(head), "->");
+        List.print(oddEvenList(head));
     }
 
     /**
