@@ -16,11 +16,26 @@ public class FlattenDoubleLinkedList {
         Node l2 = List.getDoubleLinkedList(new int[] { 5, 6, 7, 8 });
         Node l1 = List.getDoubleLinkedList(new int[] { 1, 2, 3, 4 });
 
-        l1.next.next.next.child = l6;
+        l1.next.next.child = l6;
         l1.next.child = l2;
         l2.next.child = l3;
         l2.next.next.child = l4;
         l2.next.next.next.child = l5;
+
+        /**
+         * 1->2->3->4
+         *    |  |
+         *    |  16->17
+         *    |
+         *    5->6->7->8
+         *       |  |  |
+         *       |  |  14->15
+         *       |  11->12->13
+         *       9->10
+         *
+         * Finally
+         * 1->2->5->6->9->10->7->11->12->13->8->14->15->3->16->17->4
+         */
 
         return l1;
     }
@@ -53,9 +68,14 @@ public class FlattenDoubleLinkedList {
         // temp.child, temp.next == null ? -1 : temp.next.data));
         // temp = temp.next;
         // }
+
+        System.out.print("\n");
+        System.out.print("PreOrder flat list");
+        Node preOrder = preOrder(getHeadNode());
+        List.print(preOrder);
     }
 
-    public static Node recursive(Node head, Node next) {
+    static Node recursive(Node head, Node next) {
         Node node = head, prev = null, tempNext = null, flat;
         while (node != null) {
             tempNext = node.next;
@@ -79,7 +99,7 @@ public class FlattenDoubleLinkedList {
         return head;
     }
 
-    public static Node iterative(Node head) {
+    static Node iterative(Node head) {
         Node node = head, prev = null;
         Deque<Node> stack = new ArrayDeque<>();
         while (node != null) {
@@ -103,6 +123,32 @@ public class FlattenDoubleLinkedList {
             }
         }
 
+        return head;
+    }
+
+    static Node preOrder(Node node) {
+        Node head = node,preoChild = null, preoNext, child, next;
+        if (node == null)
+            return node;
+
+        child = node.child;
+        next = node.next;
+        if (child != null) {
+            preoChild = preOrder(child);
+            node.next = preoChild;
+            node.child = null;
+            if (preoChild != null)
+                preoChild.prev = node;
+            while (node.next != null)
+                node = node.next;
+        }
+
+        if (next != null) {
+            preoNext = preOrder(next);
+            node.next = preoNext;
+            if (preoNext != null)
+                preoNext.prev = node;
+        }
         return head;
     }
 }
