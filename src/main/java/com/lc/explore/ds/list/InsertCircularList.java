@@ -14,7 +14,6 @@ public class InsertCircularList {
         List.printCircular(insert(getCircularLinkedList(arr), -1));
         List.printCircular(insert(getCircularLinkedList(arr), 0));
         List.printCircular(insert(getCircularLinkedList(arr), 4));
-        System.exit(0);
         List.printCircular(insert(getCircularLinkedList(new int[] {}), -1));
         List.printCircular(insert(getCircularLinkedList(new int[] { 1 }), 0));
         List.printCircular(insert(getCircularLinkedList(new int[] { 1, 3, 5 }), 0));
@@ -30,6 +29,7 @@ public class InsertCircularList {
             List.printCircular(insert(getCircularLinkedList(arr), 3));
             arr = shift(arr);
         }
+        System.exit(0);
     }
 
     static int[] shift(int[] arr) {
@@ -42,14 +42,9 @@ public class InsertCircularList {
     }
 
     static Node insert(Node head, int val) {
-        if (head == null || head.next == head) {
-            Node temp = new Node(val);
-            if (head == null) {
-                head = temp;
-            } else {
-                head.next = temp;
-            }
-            temp.next = head;
+        if (head == null) {
+            head = new Node(val);
+            head.next = head;
             return head;
         }
 
@@ -63,9 +58,8 @@ public class InsertCircularList {
 
             // if value is outside of high or low nodes, insert in between
             if (node.data > node.next.data) {
-                Node high = node, low = node.next;
-                if (val >= high.data || val <= low.data) {
-                    high.next = new Node(val, low);
+                if (val >= node.data || val <= node.next.data) {
+                    node.next = new Node(val, node.next);
                     return head;
                 }
             }
@@ -73,10 +67,8 @@ public class InsertCircularList {
             node = node.next;
         } while (node != head);
 
-        // implies all node values are same
-        // insert at end
+        // implies all node values are same, insert at end
         prev.next = new Node(val, node);
-
         return head;
     }
 }
