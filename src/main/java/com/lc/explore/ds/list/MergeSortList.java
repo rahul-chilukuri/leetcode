@@ -22,7 +22,7 @@ public class MergeSortList {
     static Node merge(Node l1, Node l2) {
         Node dummy = new Node(-1), node = dummy;
         while (l1 != null && l2 != null) {
-            if (l1.data <= l2.data) {
+            if (l1.val <= l2.val) {
                 node.next = l1;
                 l1 = l1.next;
             } else {

@@ -100,7 +100,7 @@ public class CycleDetection {
             return;
         }
 
-        System.out.println("Loop node is " + loop.data);
+        System.out.println("Loop node is " + loop.val);
         Node l1 = head;
 
         // l1 at head and l2 at loop node
@@ -125,7 +125,7 @@ public class CycleDetection {
         System.out.println("isLoop =>" + detector.isLoop(loopList.head));
         loopList.head.next.next.next.next.next = loopList.head.next;
         Node loop = detector.detectStartOfCycle(loopList.head);
-        System.out.println("detectStartOfCycle() => " + (loop == null ? "NULL" : loop.data));
+        System.out.println("detectStartOfCycle() => " + (loop == null ? "NULL" : loop.val));
         detector.detectAndRemoveLoop(loopList.head);
 
         System.out.println("isLoop =>" + detector.isLoop(loopList.head));

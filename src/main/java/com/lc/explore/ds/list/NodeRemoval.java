@@ -75,7 +75,7 @@ public class NodeRemoval {
         Node node = dummy.next;
 
         while (node != null) {
-            if (node.data == value) {
+            if (node.val == value) {
                 prev.next = node.next;
             } else {
                 prev = node;

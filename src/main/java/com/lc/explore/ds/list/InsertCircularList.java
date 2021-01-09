@@ -51,14 +51,14 @@ public class InsertCircularList {
         Node prev, node = head;
         do {
             // if value is between two nodes, insert in between
-            if (node.data <= val && node.next.data >= val) {
+            if (node.val <= val && node.next.val >= val) {
                 node.next = new Node(val, node.next);
                 return head;
             }
 
             // if value is outside of high or low nodes, insert in between
-            if (node.data > node.next.data) {
-                if (val >= node.data || val <= node.next.data) {
+            if (node.val > node.next.val) {
+                if (val >= node.val || val <= node.next.val) {
                     node.next = new Node(val, node.next);
                     return head;
                 }

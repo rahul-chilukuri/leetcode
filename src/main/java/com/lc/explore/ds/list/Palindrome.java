@@ -40,7 +40,7 @@ public class Palindrome {
         }
 
         while (slow != null && prev != null) {
-            if (slow.data != prev.data) {
+            if (slow.val != prev.val) {
                 return false;
             }
             slow = slow.next;

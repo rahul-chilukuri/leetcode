@@ -34,7 +34,7 @@ public class AddTwoNumbers extends DefaultList {
 
     static void printNode(Node node) {
         while (node != null) {
-            System.out.print(node.data + "->");
+            System.out.print(node.val + "->");
             node = node.next;
         }
         System.out.print("null\n");
@@ -63,9 +63,9 @@ public class AddTwoNumbers extends DefaultList {
     }
 
     static Node checkAndSetHeadNodeForCarryOver(Node head) {
-        int carry = head.data / 10;
+        int carry = head.val / 10;
         if (carry > 0) {
-            head.data %= 10;
+            head.val %= 10;
             head = new Node(carry, head);
         }
         return head;
@@ -101,13 +101,13 @@ public class AddTwoNumbers extends DefaultList {
         // check on one should be enough since they are
         // of same size, but retaining those checks to be clear
         if (l1.next == null && l2.next == null) {
-            node = new Node(l1.data + l2.data);
+            node = new Node(l1.val + l2.val);
         } else {
             if (l1 != null && l2 != null) {
                 node = addSameSizeNodes(l1.next, l2.next);
-                int carry = node.data / 10;
-                node.data %= 10;
-                node = new Node(l1.data + l2.data + carry, node);
+                int carry = node.val / 10;
+                node.val %= 10;
+                node = new Node(l1.val + l2.val + carry, node);
             }
         }
         return node;
@@ -119,14 +119,14 @@ public class AddTwoNumbers extends DefaultList {
         if (diff == 0) {
             return sameSizeSumNode;
         } else if (diff == 1) {
-            carry = sameSizeSumNode.data / 10;
-            sameSizeSumNode.data %= 10;
-            return new Node(carry + bigNode.data, sameSizeSumNode);
+            carry = sameSizeSumNode.val / 10;
+            sameSizeSumNode.val %= 10;
+            return new Node(carry + bigNode.val, sameSizeSumNode);
         } else {
             Node node = propagateCarry(bigNode.next, sameSizeSumNode, --diff);
-            carry = node.data / 10;
-            node.data %= 10;
-            return new Node(carry + bigNode.data, node);
+            carry = node.val / 10;
+            node.val %= 10;
+            return new Node(carry + bigNode.val, node);
         }
     }
 
@@ -159,7 +159,7 @@ public class AddTwoNumbers extends DefaultList {
         Node curr = headPrev;
         int sum, carry = 0;
         while (l1 != null || l2 != null) {
-            sum = (l1 == null ? l2.data : (l2 == null ? l1.data : (l1.data + l2.data))) + carry;
+            sum = (l1 == null ? l2.val : (l2 == null ? l1.val : (l1.val + l2.val))) + carry;
             carry = sum / 10;
             curr.next = new Node(sum % 10);
             curr = curr.next;
