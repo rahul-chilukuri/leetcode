@@ -1,4 +1,4 @@
-package com.lc.problems.medium;
+package com.lc.problems.medium.ds.list;
 
 import com.base.ds.list.DefaultList;
 import com.base.ds.nodes.Node;

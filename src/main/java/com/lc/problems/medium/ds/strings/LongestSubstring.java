@@ -1,4 +1,4 @@
-package com.lc.problems.medium;
+package com.lc.problems.medium.ds.strings;
 
 import java.util.Arrays;
 import static com.base.utils.InputUtil.sysexit;
