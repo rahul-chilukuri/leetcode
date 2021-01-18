@@ -18,56 +18,26 @@ public class SpiralMatrix {
 
     static List<Integer> spiralOrder(int[][] matrix) {
         List<Integer> spiral = new ArrayList<>();
-        int m = matrix.length;
-        int n = matrix[0].length;
-        int start = 0;
+        int m = matrix.length, n = matrix[0].length;
+        int row = 0, column = -1;
 
-        while (start < n) {
-            int row = start, column = start;
-            // print left to right on first row
-            while (column < n)
-                spiral.add(matrix[row][column++]);
+        while (true) {
+            for (int i = 0; i < n; i++) 
+                spiral.add(matrix[row][++column]);
 
-            // column=n-1
-            column--;
+            if (--m == 0) break;
+            for (int i = 0; i < m; i++)
+                spiral.add(matrix[++row][column]);
+            
+            if(--n == 0 ) break;
+            for (int i = 0; i < n; i++)
+                spiral.add(matrix[row][--column]);
 
-            // if cant go down, nothing to loop further
-            row = start + 1;
-            if (row >= m) {
-                break;
-            }
+            if (--m == 0) break;
+            for (int i = 0; i < m; i++)
+                spiral.add(matrix[--row][column]);
 
-            // print top to bottom on last column
-            while (row < m)
-                spiral.add(matrix[row++][column]);
-
-            row--; // row=m-1
-            column--;// column=n-2
-
-            // if nothing to go towards left
-            if (column < start) {
-                break;
-            }
-
-            // print right-1 to left on last row
-            while (column >= start)
-                spiral.add(matrix[row][column--]);
-
-            column++;// column=start
-            row--;// row=m-2
-
-            // nothing to go up
-            if (row <= start) {
-                break;
-            }
-
-            // print bottom-1 to start+1
-            while (row > start)
-                spiral.add(matrix[row--][column]);
-
-            m--;
-            n--;
-            start++;
+            if (--n == 0) break;
         }
 
         return spiral;
